@@ -6,7 +6,7 @@ require('dotenv').config();
 const mongodb = require('mongoose');
 app.use(
   cors({
-    origin: 'https://movieapptask.vercel.app/',
+    origin: 'https://movieapptask.vercel.app/api/',
     optionsSuccessStatus: 200,
   })
 );

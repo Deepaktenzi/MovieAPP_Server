@@ -139,7 +139,6 @@ module.exports = {
         }
       }
     } catch (error) {
-      s;
       console.log(error);
     }
   },

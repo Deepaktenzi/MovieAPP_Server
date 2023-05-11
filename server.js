@@ -4,12 +4,25 @@ const cors = require('cors');
 const cookieParser = require('cookie-parser');
 require('dotenv').config();
 const mongodb = require('mongoose');
-app.use(
-  cors({
-    origin: 'https://movieapptask.vercel.app/api/',
-    optionsSuccessStatus: 200,
-  })
-);
+app.use((req, res, next) => {
+  res.setHeader(
+    'Access-Control-Allow-Origin',
+    'https://movieapptask.vercel.app'
+  );
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  res.setHeader(
+    'Access-Control-Allow-Methods',
+    'GET, POST, PUT, DELETE, OPTIONS'
+  );
+  next();
+});
+
+// app.use(
+//   cors({
+//     origin: 'https://movieapptask.vercel.app/',
+//     optionsSuccessStatus: 200,
+//   })
+// );
 const adminRoutes = require('./routes/adminRoutes');
 
 app.use(express.json({ limit: '1000mb' }));

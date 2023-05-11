@@ -4,16 +4,16 @@ const cors = require('cors');
 const cookieParser = require('cookie-parser');
 require('dotenv').config();
 const mongodb = require('mongoose');
-const adminRoutes = require('./routes/adminRoutes');
-
-app.use(express.json({ limit: '1000mb' }));
-
 app.use(
   cors({
     origin: 'https://movieapptask.vercel.app/',
     optionsSuccessStatus: 200,
   })
 );
+const adminRoutes = require('./routes/adminRoutes');
+
+app.use(express.json({ limit: '1000mb' }));
+
 app.use(cookieParser());
 app.use('/api/', adminRoutes);
 

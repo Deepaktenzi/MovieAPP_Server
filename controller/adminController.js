@@ -134,9 +134,12 @@ module.exports = {
             rootId: user._id.toString(),
             rootUser: user.name,
           });
+        } else {
+          res.status(401).json({ message: 'Unauthorized user' });
         }
       }
     } catch (error) {
+      s;
       console.log(error);
     }
   },

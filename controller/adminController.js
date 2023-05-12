@@ -137,11 +137,10 @@ module.exports = {
         } else {
           res.status(401).json({ message: 'Unauthorized user' });
         }
-      } else {
-        res.status(401).json({ message: 'Unauthorized user' });
       }
     } catch (error) {
       console.log(error);
+      res.status(500).json({ message: 'Server Error' });
     }
   },
   editmovie: async (req, res) => {

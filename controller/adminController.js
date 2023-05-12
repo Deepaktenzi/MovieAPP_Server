@@ -128,14 +128,14 @@ module.exports = {
             { username: user.name, id: user._id.toString() },
             process.env.SECRET_KEY
           );
-          res.status(200).json({
+          return res.status(200).json({
             message: 'Logged in',
             token: token,
             rootId: user._id.toString(),
             rootUser: user.name,
           });
         } else {
-          res.status(401).json({ message: 'Unauthorized user' });
+          return res.status(401).json({ message: 'Unauthorized user' });
         }
       }
     } catch (error) {
